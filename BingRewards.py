@@ -7,28 +7,7 @@ word_file = "words.txt"
 WORDS = open(word_file).read().splitlines()
 finalSearch = []
 definitions = 0
-browser = input("""What browser do you use?
-                [1] Chrome
-                [2] Explorer""")
-if browser == '1' or browser.lower() == 'chrome':
-    killChrome = "killChrome.cmd"
-elif browser == '2' or browser.lower() == 'explorer':
-    killChrome = "killExplore.cmd"
-
-postRewardCommand = input("""After the program finishd would you like to:
-                            [1] Shutdown
-                            [2] Restart
-                            [3] Hibernate
-                            [4] Do Nothing""")
-if postRewardCommand == "1":
-    command = "shutdown.lnk"
-if postRewardCommand == "2":
-    command = "restart.lnk"
-if postRewardCommand == "3":
-    command = "hibernate.lnk"
-else:
-    command = "nothing"
-
+killChrome = 'killChrome.cmd'
 
 def append(num,initialNum,word):
     global finalSearch
@@ -67,6 +46,7 @@ def browser():
     finalSearch.remove(end)
     print(finalSearch)
     finalSearch = []
+    
 count = 0
 for i in range(3):
     for i in range(30):
@@ -80,5 +60,3 @@ for i in range(3):
             os.startfile(killChrome)
         time.sleep(2)
 
-os.startfile(finished)
-os.startfile(command)
